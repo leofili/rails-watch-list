@@ -1,6 +1,16 @@
-<h2>Lists</h2>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <div class="text-center">
+      <h1><strong>Save any kind of movies</strong>!</h1>
+      <p>Classic</p>
+    </div>
+</div>
+<hr>
+<div class="container">
+  <h2 class="text-center">My lists</h2>
+    <% @lists.each do |list| %>
+      <div class="card-category mb-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+</div>
+
