@@ -1,21 +1,24 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544198365-f5d60b6d8190?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
     <div class="text-center">
-      <h1><strong>Save any kind of movies</strong>!</h1>
-      <p>Classic</p>
+      <h1><strong>Best watchlist</strong> !</h1>
+      <p>Check this out</p>
     </div>
 </div>
 <hr>
 <div class="container">
-  <h2 class="text-center">My lists</h2>
+  <div class="row">
     <% @lists.each do |list| %>
-      <% if list.photo.attached? %>
-        <div class='card-category mb-2' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, width: 400 %>')">
+      <div class="col-md-6">
+        <% if list.photo.attached? %>
+          <div class='card-category mb-2' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, width: 400 %>')">
+            <%= link_to list.name, list_path(list) %>
+          </div>
+        <% else %>
           <%= link_to list.name, list_path(list) %>
-        </div>
-      <% else %>
-        <%= link_to list.name, list_path(list) %>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
+  </div>
 </div>
 
 
